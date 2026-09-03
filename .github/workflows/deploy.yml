@@ -9,13 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: debug token (why is auth failing??)
-        env:
-          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-        run: |
-          echo "token length: ${#DEPLOY_TOKEN}"
-          echo "checking for trailing whitespace..."
-          printf '%s' "$DEPLOY_TOKEN" | xxd
       - name: deploy
         env:
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}

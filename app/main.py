@@ -16,7 +16,7 @@ def status():
     results = {}
     for name, url in SERVICES.items():
         try:
-            r = requests.get(url, timeout=3)
+            r = requests.get(url, timeout=5)
             results[name] = "up" if r.ok else f"down ({r.status_code})"
         except requests.RequestException:
             results[name] = "unreachable"
